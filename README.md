@@ -1,18 +1,23 @@
-# LLM Gateway with Fallback Routing
+# llm-gateway-observability
 
-> A production API gateway enforcing per-team rate limits, automatically falling back to alternative providers during outages, with unified OpenTelemetry observability.
+Observability layer and proxy gateway for LLM requests, tracking token usage, latency, and standardizing traces.
 
-## 🛠️ Tech Stack
-- **Core Technology**: TypeScript, Redis, OpenTelemetry, Grafana
-- **Architecture**: Microservices, Event-Driven, AI-Native
+## Features
+- Fully automated workflow.
+- Secure, scalable architecture.
+- Built-in telemetry and observability.
 
-## 🚀 Step-by-Step Setup
+## Technologies
+- Python, OpenTelemetry, FastAPI
+
+## Getting Started
+Ensure you have the required dependencies installed on your system.
+
 ```bash
-git clone https://github.com/SumitDalavi/llm-gateway-observability.git
-cd llm-gateway-observability
-docker-compose up -d --build
+# Setup & Test
+pip install -r requirements.txt
+pytest
 ```
 
-## 👨‍💻 Author
-**Sumit Dalavi** — Senior DevSecOps / Platform Engineer
-[GitHub](https://github.com/SumitDalavi) | [LinkedIn](https://in.linkedin.com/in/sumit-dalavi-762838129)
+## Architecture
+Please see the [Architecture Document](docs/architecture.md) for sequence diagrams and system design details.
