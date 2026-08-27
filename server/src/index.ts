@@ -7,7 +7,7 @@ import { checkBudget, deductBudget, getBudgets, getBudgetConfigs } from './auth/
 import { getMetrics } from './observability/metrics';
 import { Provider } from './gateway/provider';
 
-const app = express();
+export const app = express();
 app.use(cors());
 app.use(express.json());
 
@@ -85,6 +85,8 @@ app.get('/admin/metrics', (req, res) => {
 });
 
 const PORT = process.env.PORT || 4003;
-app.listen(PORT, () => {
-  console.log(`LLM Gateway running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`LLM Gateway running on port ${PORT}`);
+  });
+}
