@@ -1,7 +1,7 @@
 import 'dotenv/config';
 // @ts-nocheck
-import * as express from 'express';
-import * as cors from 'cors';
+import express = require('express');
+import cors = require('cors');
 import { executeWithFallback } from './gateway/fallback';
 import { checkRateLimit, estimateTokens } from './auth/rateLimiter';
 import { checkBudget, deductBudget, getBudgets, getBudgetConfigs } from './auth/budget';
@@ -14,7 +14,7 @@ app.use(express.json());
 
 // --- GATEWAY ENDPOINT ---
 
-app.post('/v1/chat/completions', async (req, res) => {
+app.post('/v1/chat/completions', async (req: any, res: any) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ error: "Missing Authorization header" });
   
@@ -77,7 +77,7 @@ app.post('/v1/chat/completions', async (req, res) => {
 
 // --- ADMIN / DASHBOARD ENDPOINTS ---
 
-app.get('/admin/metrics', (req, res) => {
+app.get('/admin/metrics', (req: any, res: any) => {
   res.json({
     metrics: getMetrics(),
     budgets: getBudgets(),

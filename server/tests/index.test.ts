@@ -1,5 +1,5 @@
 // @ts-nocheck
-import request from 'supertest';
+const request = require('supertest');
 import { app } from '../src/index';
 import * as fallback from '../src/gateway/fallback';
 import * as budget from '../src/auth/budget';
