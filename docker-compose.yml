@@ -1,6 +1,45 @@
 version: '3.8'
 services:
-  app:
-    build: .
+  server:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
     ports:
-      - '8080:8080'
+      - '4003:4003'
+    environment:
+      - OTLP_TRACE_URL=http://otel-collector:4318/v1/traces
+      - OTLP_METRIC_URL=http://otel-collector:4318/v1/metrics
+    depends_on:
+      - otel-collector
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '5173:5173'
+
+  otel-collector:
+    image: otel/opentelemetry-collector:0.87.0
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus

@@ -24,6 +24,12 @@ export function recordRequest(teamId: string, provider: string, latencyMs: numbe
   if (!metrics.providerUsage[provider]) metrics.providerUsage[provider] = 0;
   metrics.providerUsage[provider]++;
   
+  // High-Cardinality Protection: limit unique team IDs tracked in memory
+  if (Object.keys(metrics.teamUsage).length > 500 && !metrics.teamUsage[teamId]) {
+    // Group overflow into an "other" bucket to prevent memory leaks/cardinality explosions
+    teamId = 'other_teams_overflow';
+  }
+  
   if (!metrics.teamUsage[teamId]) metrics.teamUsage[teamId] = 0;
   metrics.teamUsage[teamId]++;
   

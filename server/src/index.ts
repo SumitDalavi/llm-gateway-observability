@@ -1,3 +1,4 @@
+import './telemetry';
 import 'dotenv/config';
 // @ts-nocheck
 import express = require('express');
