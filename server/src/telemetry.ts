@@ -2,6 +2,7 @@ import { NodeSDK } from '@opentelemetry/sdk-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
+import { trace } from '@opentelemetry/api';
 
 const traceExporter = new OTLPTraceExporter({
   url: process.env.OTLP_TRACE_URL || 'http://localhost:4318/v1/traces',
@@ -18,6 +19,8 @@ export const sdk = new NodeSDK({
 });
 
 sdk.start();
+
+export const tracer = trace.getTracer('llm-gateway');
 
 process.on('SIGTERM', () => {
   sdk.shutdown()
