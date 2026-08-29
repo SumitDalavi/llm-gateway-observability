@@ -47,3 +47,8 @@ flowchart TD
 |---|---|---|
 | OpenTelemetry | **Real** | Full OTel stack configured via Docker Compose. |
 | Upstream LLMs | **Optional** | E2E provider contract tests hit real APIs; unit tests use mocks. |
+
+
+## Component Breakdown
+- **Core Technology**: TypeScript, Redis, OpenTelemetry, Grafana
+- **Design Paradigm**: Emphasizes high availability, fault tolerance, and security.
