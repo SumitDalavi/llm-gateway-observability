@@ -6,6 +6,12 @@ import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 export type Provider = "openai" | "anthropic";
 
 export async function callProvider(provider: Provider, modelName: string, prompt: string, apiKey: string): Promise<string> {
+  if (apiKey.startsWith("sk-dummy")) {
+    // Simulate latency
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return `[Mock Response from ${provider}] Processed prompt: "${prompt.substring(0, 50)}..."`;
+  }
+
   let model: BaseChatModel;
   
   if (provider === "openai") {

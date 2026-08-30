@@ -21,6 +21,11 @@ app.post('/v1/chat/completions', async (req: any, res: any) => {
   
   // E.g. "Bearer team-frontend-key" -> "team-frontend"
   const token = authHeader.split(" ")[1];
+  
+  if (token === "invalid-token") {
+    return res.status(401).json({ error: "OPA Policy Denied SVID" });
+  }
+  
   const teamId = token.split("-key")[0]; // Simple mock logic to extract team ID from token
 
   const { messages, simulateOutage } = req.body;

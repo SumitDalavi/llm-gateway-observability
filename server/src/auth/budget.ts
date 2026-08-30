@@ -9,6 +9,7 @@ const BUDGET_CONFIGS: Record<string, BudgetConfig> = {
   "team-frontend": { maxSpendUSD: 10.0 }, // $10 limit
   "team-backend": { maxSpendUSD: 50.0 },
   "team-data": { maxSpendUSD: 100.0 },
+  "test-team-exhausted": { maxSpendUSD: 0.0 }, // For demo scenario 2
 };
 
 // Extremely rough mock pricing per 1k tokens
