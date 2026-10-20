@@ -4,12 +4,13 @@
 
 # llm-gateway-observability
 
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/llm-gateway-observability?color=blue&logo=github)](https://github.com/SumitDalavi/llm-gateway-observability/releases)
+[![CI Pipeline](https://github.com/SumitDalavi/llm-gateway-observability/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/SumitDalavi/llm-gateway-observability/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/SumitDalavi/llm-gateway-observability?color=0969da&label=release&logo=github)](https://github.com/SumitDalavi/llm-gateway-observability/releases)
 [![Release Workflow](https://github.com/SumitDalavi/llm-gateway-observability/actions/workflows/release.yml/badge.svg)](https://github.com/SumitDalavi/llm-gateway-observability/actions/workflows/release.yml)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/llm-gateway-observability/releases)
-
-[![Release](https://img.shields.io/github/v/release/SumitDalavi/llm-gateway-observability?color=blue&logo=github)](https://github.com/SumitDalavi/llm-gateway-observability/releases)
-[![SBOM](https://img.shields.io/badge/SBOM-SPDX%20JSON-blueviolet?logo=spdx)](https://github.com/SumitDalavi/llm-gateway-observability/releases)
+[![GHCR Container](https://img.shields.io/badge/ghcr.io-v0.2.0-blue?logo=docker&logoColor=white)](https://github.com/SumitDalavi/llm-gateway-observability/pkgs/container/llm-gateway-observability)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/llm-gateway-observability/releases/tag/v0.2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Maturity:** Full Prototype
 > _Observability layer and proxy gateway for LLM requests, tracking token usage, latency, and standardizing traces._
@@ -34,13 +35,11 @@ pytest
 ## Architecture
 Please see the [Architecture Document](docs/architecture.md) for sequence diagrams and system design details.
 
-
 ## CI & Reliability Updates (August 2026)
 
 - **CI Pipeline Remediation:** Successfully resolved all CI/CD pipeline failures.
 - **Specific Fix:** Downgraded TypeScript to match ts-jest peer dependency requirements.
 - **Status:** 🟩 Passing
-
 
 ---
 
