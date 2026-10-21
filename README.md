@@ -8,8 +8,7 @@
 [![SBOM](https://img.shields.io/badge/SBOM-SPDX%202.3-blueviolet?logo=spdx)](https://github.com/SumitDalavi/llm-gateway-observability/releases/tag/v0.2.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-> **Maturity:** Full Prototype
-> _Observability layer and proxy gateway for LLM requests, tracking token usage, latency, and standardizing traces._
+> Observability layer and proxy gateway for LLM requests, tracking token usage, latency, and standardizing traces.
 
 ## Features
 - Fully automated workflow.
